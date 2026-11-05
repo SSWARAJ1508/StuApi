@@ -1,0 +1,38 @@
+{
+  "name": "student-api",
+  "version": "1.0.0",
+  "description": "Beginner-friendly Student Management REST API with Express, Jest, ESLint, Prettier, and Docker",
+  "main": "src/server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/server.js",
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
+  },
+  "jest": {
+    "transform": {}
+  },
+  "keywords": [
+    "express",
+    "rest-api",
+    "docker",
+    "jest",
+    "eslint",
+    "prettier"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.3.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.14.0",
+    "globals": "^17.14.0",
+    "jest": "^30.5.2",
+    "prettier": "^3.9.10",
+    "supertest": "^7.3.1"
+  }
+}
