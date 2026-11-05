@@ -1,0 +1,40 @@
+name: Node.js CI Pipeline
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  build-and-test:
+    name: Build, Test, Lint, and Docker Verification
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Execute automated tests
+        run: npm test
+
+      - name: Execute ESLint
+        run: npm run lint
+
+      - name: Verify Prettier formatting
+        run: npm run format:check
+
+      - name: Build Docker image
+        run: docker build -t stuapi .
